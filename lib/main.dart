@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_provider/HomeScreen.dart';
+import 'package:mvvm_provider/utils/routes/routes/routes.dart';
+import 'package:mvvm_provider/utils/routes/routes/routes_name.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
       themeMode: ThemeMode.system,
-      home: HomeScreen(),
+      initialRoute: RouteName.loginscreen,
+      onGenerateRoute: Routes.generateRoute,
     );
   }
 }
