@@ -44,7 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    "assets/images/confuse.jpg",
+                    "assets/images/user_sign_up.jpg",
                     fit: BoxFit.fitWidth,
                     height: 350,
                   ),
