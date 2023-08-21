@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_provider/resources/appcolor.dart';
+import 'package:mvvm_provider/viewmodel/register_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/routes/routes_name.dart';
 import '../utils/utlis.dart';
-import '../viewmodel/login_provider.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -43,13 +43,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Image.asset(
-                  //   "assets/images/contact_admin.jpg",
-                  //   fit: BoxFit.fitWidth,
-                  //   height: 350,
-                  // ),
+                  Image.asset(
+                    "assets/images/confuse.jpg",
+                    fit: BoxFit.fitWidth,
+                    height: 350,
+                  ),
                   Text(
-                    "Sign in".toUpperCase(),
+                    "Sign Up".toUpperCase(),
                     style: const TextStyle(
                         fontSize: 50,
                         fontWeight: FontWeight.w500,
@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 25,
                   ),
-                  Consumer<LoginScreenProvider>(
+                  Consumer<RegisterScreenProvider>(
                     builder: (context, value, child) {
                       return TextFormField(
                         controller: passwordController,
@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Consumer<LoginScreenProvider>(
+                  Consumer<RegisterScreenProvider>(
                     builder: (context, value, child) {
                       return ElevatedButton(
                           onPressed: () {
@@ -126,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 'email': emailController.text.toString(),
                                 'password': passwordController.text.toString(),
                               };
-                              value.loginApi(context, data);
+                              value.registerUser(context, data);
                               // Utils.toastSuccessMessage(
                               //     "Successful Login", context);
                             } else {
@@ -141,20 +141,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                           ),
-                          child: value.loading == false
-                              ? Text(
-                                  "login".toUpperCase(),
-                                  style: const TextStyle(
-                                      fontSize: 25, color: Colors.white),
-                                )
-                              : const SizedBox(
-                                  height: 30,
-                                  width: 30,
-                                  child: CircularProgressIndicator(
-                                    color: Colors.white,
-                                    strokeWidth: 5,
-                                  ),
-                                ));
+                          child: Text(
+                            "sign up".toUpperCase(),
+                            style: const TextStyle(
+                                fontSize: 25, color: Colors.white),
+                          ));
                     },
                   ),
                   const SizedBox(
@@ -163,26 +154,25 @@ class _LoginScreenState extends State<LoginScreen> {
                   InkWell(
                     onTap: () {
                       Navigator.pushReplacementNamed(
-                          context, RouteName.registerscreen);
+                          context, RouteName.loginscreen);
                     },
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Don't Have Any Account?"),
+                        Text("Already A  Member? "),
                         Text(
-                          " Sign Up",
+                          "Sign In",
                           style: TextStyle(color: Colors.blue),
                         ),
                       ],
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
-
                   const Text("email : eve.holt@reqres.in"),
-                  const Text("password : cityslicka"),
+                  const Text("password : pistol"),
                 ],
               ),
             ),

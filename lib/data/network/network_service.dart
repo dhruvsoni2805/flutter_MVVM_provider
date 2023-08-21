@@ -26,12 +26,12 @@ class NetworkApiService extends BaseApiService {
     dynamic responseJson;
     try {
       debugPrint("the url is : ${url.toString()}");
-      debugPrint("the data in network is : ${data.toString()}");
-      Response response = await http.post(
+      debugPrint("the data is : ${data.toString()}");
+      Response response = await post(
         Uri.parse(url),
         body: data,
-      );
-
+      ).timeout(const Duration(seconds: 10));
+      debugPrint(" response is : ${response.body}");
       responseJson = returnResponse(response);
     } on SocketException {
       throw FetchDataException('No internet Connection');
@@ -45,6 +45,7 @@ class NetworkApiService extends BaseApiService {
         dynamic responseJson = jsonDecode(response.body);
         return responseJson;
       case 400:
+        print("vybuk");
         // dynamic responseJson = jsonDecode(response.body);
         // return responseJson;
         throw BadRequestException(response.body.toString());
@@ -53,9 +54,7 @@ class NetworkApiService extends BaseApiService {
         throw UnAutoriseException(response.body.toString());
       default:
         throw FetchDataException(
-            'Error accured while communicating with server' +
-                'with status code' +
-                response.statusCode.toString());
+            'Error accured while communicating with server with status code ${response.statusCode}');
     }
   }
 }

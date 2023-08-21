@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_provider/data/response/app_url.dart';
-import 'package:mvvm_provider/respository/login_repo.dart';
 
+import '../respository/register_repo.dart';
 import '../utils/routes/routes_name.dart';
 import '../utils/utlis.dart';
 
-class LoginScreenProvider with ChangeNotifier {
+class RegisterScreenProvider with ChangeNotifier {
   bool _showpassword = false;
 
   bool get showpassword => _showpassword;
 
-  final _loginfunction = LoginRepo();
+  final _registerfunction = RegisterRepo();
 
   bool _loading = false;
 
@@ -27,15 +27,17 @@ class LoginScreenProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> loginApi(context, dynamic data) async {
+  Future<void> registerUser(context, dynamic data) async {
     setLoading(true);
-    _loginfunction.loginApi(data).then((value) {
-      debugPrint("Login Response from this ${AppUrl.loginUrl} is :  $value");
+    _registerfunction.registerApi(data).then((value) {
+      debugPrint(
+          "Register Response from this ${AppUrl.registerurl} is :  $value");
       setLoading(false);
-      Navigator.pushReplacementNamed(context, RouteName.homescreen);
-      Utils.toastSuccessMessage("Login Done", context);
+      Navigator.pushReplacementNamed(context, RouteName.loginscreen);
+      Utils.toastSuccessMessage("register Done", context);
     }).onError((error, stackTrace) {
-      Utils.toastErrorMessage("User Not Found", context);
+      Utils.toastErrorMessage(
+          "Only Defined Users Succeed Registration", context);
       debugPrint("the error is : ${error.toString()}");
       setLoading(false);
     });

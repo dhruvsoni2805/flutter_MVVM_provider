@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_provider/utils/routes/routes/routes.dart';
-import 'package:mvvm_provider/utils/routes/routes/routes_name.dart';
 import 'package:mvvm_provider/viewmodel/login_provider.dart';
+import 'package:mvvm_provider/viewmodel/register_provider.dart';
 import 'package:provider/provider.dart';
+
+import 'utils/routes/routes.dart';
+import 'utils/routes/routes_name.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +19,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => LoginScreenProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => RegisterScreenProvider(),
         ),
       ],
       child: Builder(

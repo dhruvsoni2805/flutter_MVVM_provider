@@ -10,10 +10,9 @@ class Utils {
       height: 60,
       width: 250,
       position: MotionToastPosition.top,
-      animationDuration: const Duration(milliseconds: 1500),
       animationCurve: Curves.linearToEaseOut,
       animationType: AnimationType.fromBottom,
-      toastDuration: const Duration(seconds: 3),
+      toastDuration: const Duration(seconds: 1),
       description: Text(message.toString()),
       enableAnimation: true,
       displayBorder: true,
@@ -53,6 +52,11 @@ class Utils {
   static snackBarMessage(String message, BuildContext context) {
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        behavior: SnackBarBehavior.floating,
+        elevation: 10,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         backgroundColor: Colors.red,
         content: Text(message),
       ),
