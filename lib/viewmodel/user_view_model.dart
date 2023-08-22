@@ -15,8 +15,6 @@ class UserViewModel with ChangeNotifier {
   Future<UserModel> getUser() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
     final String? token = pref.getString('token');
-    // pref.setString('token', user.token.toString());
-    // pref.setString('username', user.token.toString());
     notifyListeners();
     return UserModel(token: token.toString());
   }

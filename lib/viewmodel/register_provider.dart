@@ -31,7 +31,7 @@ class RegisterScreenProvider with ChangeNotifier {
     setLoading(true);
     _registerfunction.registerApi(data).then((value) {
       debugPrint(
-          "Register Response from this ${AppUrl.registerurl} is :  $value");
+          "Register Response from this ${AppUrl.registerUrl} is :  $value");
       setLoading(false);
       Navigator.pushReplacementNamed(context, RouteName.loginscreen);
       Utils.toastSuccessMessage("register Done", context);

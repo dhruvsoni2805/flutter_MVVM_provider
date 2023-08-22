@@ -10,7 +10,7 @@ class RegisterRepo {
     debugPrint("dynamic data is : ${data.toString()}");
     try {
       dynamic response =
-          await _apiService.getPostApiResponse(AppUrl.registerurl, data);
+          await _apiService.getPostApiResponse(AppUrl.registerUrl, data);
       debugPrint("register api");
       return response;
     } catch (e) {

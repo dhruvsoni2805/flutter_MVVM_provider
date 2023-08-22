@@ -12,8 +12,13 @@ class NetworkApiService extends BaseApiService {
   Future getGetApiResponse(String url) async {
     dynamic responseJson;
     try {
+      debugPrint("the url is : ${url.toString()}");
       final response =
           await http.get(Uri.parse(url)).timeout(const Duration(seconds: 60));
+      debugPrint("the Data response is : ${response.body.toString()}");
+      debugPrint("6786531");
+      print("the Data response is : ${response.body.toString()}");
+
       responseJson = returnResponse(response);
     } on SocketException {
       throw FetchDataException('No internet Connection');
