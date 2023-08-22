@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_provider/viewmodel/login_provider.dart';
 import 'package:mvvm_provider/viewmodel/register_provider.dart';
+import 'package:mvvm_provider/viewmodel/user_view_model.dart';
 import 'package:provider/provider.dart';
 
 import 'utils/routes/routes.dart';
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => RegisterScreenProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => UserViewModel(),
+        ),
       ],
       child: Builder(
         builder: (context) {
@@ -32,7 +36,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData.light(useMaterial3: true),
             darkTheme: ThemeData.dark(useMaterial3: true),
             themeMode: ThemeMode.system,
-            initialRoute: RouteName.loginscreen,
+            initialRoute: RouteName.splashscreen,
             onGenerateRoute: Routes.generateRoute,
           );
         },

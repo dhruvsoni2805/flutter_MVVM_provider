@@ -43,11 +43,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Image.asset(
-                  //   "assets/images/contact_admin.jpg",
-                  //   fit: BoxFit.fitWidth,
-                  //   height: 350,
-                  // ),
+                  Image.asset(
+                    "assets/images/contact_admin.jpg",
+                    fit: BoxFit.fitWidth,
+                    height: 350,
+                  ),
                   Text(
                     "Sign in".toUpperCase(),
                     style: const TextStyle(
@@ -180,7 +180,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 20,
                   ),
-
                   const Text("email : eve.holt@reqres.in"),
                   const Text("password : cityslicka"),
                 ],

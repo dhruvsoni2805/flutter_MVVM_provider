@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_provider/utils/routes/routes/routes_name.dart';
+import 'package:mvvm_provider/utils/routes/routes_name.dart';
 import 'package:mvvm_provider/view/login_screen.dart';
 import 'package:mvvm_provider/view/register_screen.dart';
+import 'package:mvvm_provider/view/splash_screen.dart';
 
 import '../../../view/HomeScreen.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case RouteName.splashscreen:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const SplashScreen(),
+        );
       case RouteName.loginscreen:
         return MaterialPageRoute(
           builder: (BuildContext context) => const LoginScreen(),
