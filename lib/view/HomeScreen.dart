@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ElevatedButton.icon(
                         onPressed: () {
                           homeScreenProvider.getUserListApi();
-                          debugPrint("api rehit");
+                          debugPrint("api re-hit");
                         },
                         style: ElevatedButton.styleFrom(
                           fixedSize: const Size(200, 50),
@@ -78,9 +78,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: value.userList.data!.data!.length,
                 itemBuilder: (context, index) {
                   return Card(
-                    elevation: 5,
+                    elevation: 10,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25)),
+                    margin:
+                        const EdgeInsets.only(bottom: 20, left: 10, right: 10),
                     child: Container(
                       width: 100,
                       padding: const EdgeInsets.only(left: 10),
